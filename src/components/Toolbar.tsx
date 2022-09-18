@@ -5,26 +5,18 @@ import { FaRegEnvelope } from 'react-icons/fa';
 
 const Toolbar = () => {
   return (
-    <header className='mt-2 w-screen h-20 border-black border-b-2'>
+    <header className='mt-2 w-full h-20 border-b-2'>
       <nav className='flex p-4'>
-        <Button
-          p='p-2'
-          w='w-40'
-          text='text-lg'
-          rounded='rounded-sm'
-          icon={<FaRegEnvelope />}
-        >
-          NEW MESSAGE
+        <Button styles='p-2 rounded-sm w-36'>
+          <div className='w-full flex justify-between items-center'>
+            <FaRegEnvelope /> NEW MESSAGE
+          </div>
         </Button>
-        <Button
-          p='p-2'
-          m='ml-4'
-          w='w-40'
-          text='text-lg'
-          rounded='rounded-sm'
-          icon={<AiOutlineUserAdd />}
-        >
-          ADD CONTACT
+
+        <Button styles='p-2 rounded-sm w-36 ml-4'>
+          <div className='w-full flex justify-between items-center'>
+            <AiOutlineUserAdd /> ADD CONTACT
+          </div>
         </Button>
       </nav>
     </header>
