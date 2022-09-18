@@ -1,7 +1,12 @@
 import React from 'react';
+import Toolbar from './Toolbar';
 
 const BaseLayout: React.FC = () => {
-  return <div>BaseLayout</div>;
+  return (
+    <>
+      <Toolbar />
+    </>
+  );
 };
 
 export default BaseLayout;

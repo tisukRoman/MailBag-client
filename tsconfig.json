@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "CommonJS",
+    "target": "es6",
     "allowJs": true,
     "jsx": "react",
-    "sourceMap": true,
-    "baseUrl": "./",
-    "paths": {
-      "@components/*": ["src/components/*"]
-    }
+    "sourceMap": true
   },
   "files": ["src/index.tsx"]
 }
