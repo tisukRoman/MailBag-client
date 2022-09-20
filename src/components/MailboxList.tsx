@@ -8,7 +8,7 @@ type MailboxListProps = {
 
 const MailboxList: React.FC<MailboxListProps> = (props) => {
   return (
-    <aside className='w-40 h-screen border-r-2'>
+    <aside className='w-40 h-full border-r-2'>
       <ul className='p-4'>
         <li>
           {props.mailboxes?.map((mailbox) => (

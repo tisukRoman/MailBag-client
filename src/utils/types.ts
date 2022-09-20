@@ -12,7 +12,7 @@ export interface IMessage {
 }
 
 export interface IContact {
-  _id?: number;
+  _id: number;
   name: string;
   email: string;
 }
