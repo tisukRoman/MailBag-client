@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import Toolbar from './Toolbar';
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { imap } from '../utils/imap';
 import MailboxList from './MailboxList';
 import MessageList from './MessageList';
 import ContactList from './ContactList';
-import { imap } from '../utils/imap';
-import { useQuery } from '@tanstack/react-query';
+import Toolbar from './Toolbar';
 
 const BaseLayout: React.FC = () => {
-  const mailboxQuery = useQuery(['mailboxes'], imap.getMailBoxes);
+  const { data: mailboxes, status } = useQuery(
+    ['mailboxes'],
+    imap.getMailBoxes
+  );
 
-  if(!mailboxQuery.data){
-    return <div>Load...</div>
-  }
   return (
     <div className='max-w-screen-xl mx-auto border-2'>
       <Toolbar />
       <main>
-        <MailboxList mailboxes={mailboxQuery.data} />
+        <MailboxList mailboxes={mailboxes} />
         <MessageList />
         <ContactList />
       </main>

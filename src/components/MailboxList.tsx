@@ -11,7 +11,7 @@ const MailboxList: React.FC<MailboxListProps> = (props) => {
     <aside className='w-40 h-screen border-r-2'>
       <ul className='p-4'>
         <li>
-          {props.mailboxes.map((mailbox) => (
+          {props.mailboxes?.map((mailbox) => (
             <Button
               key={mailbox.name}
               styles='p-2 mb-4 w-full rounded-3xl text-center'
