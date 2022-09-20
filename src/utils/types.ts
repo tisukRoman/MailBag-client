@@ -10,3 +10,9 @@ export interface IMessage {
   subject: string;
   body?: string;
 }
+
+export interface IContact {
+  _id?: number;
+  name: string;
+  email: string;
+}
