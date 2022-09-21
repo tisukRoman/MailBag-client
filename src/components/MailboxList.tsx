@@ -1,17 +1,21 @@
 import React from 'react';
-import { IMailbox } from '../utils/types';
 import Button from './Button';
+import { useGetMailboxes } from '../hooks/useGetMailboxes';
 
-type MailboxListProps = {
-  mailboxes: IMailbox[];
-};
+const MailboxList: React.FC = () => {
+  const { data: mailboxes, isLoading, isError, error } = useGetMailboxes();
 
-const MailboxList: React.FC<MailboxListProps> = (props) => {
-  return (
-    <aside className='w-40 h-full border-r-2'>
-      <ul className='p-4'>
+  let content = <div>Loading...</div>;
+
+  if (isLoading) {
+    content = <div>Loading...</div>;
+  } else if (isError) {
+    content = <div>{(error as Error).message || 'Error'}</div>;
+  } else {
+    content = (
+      <ul>
         <li>
-          {props.mailboxes?.map((mailbox) => (
+          {mailboxes?.map((mailbox) => (
             <Button
               key={mailbox.name}
               styles='p-2 mb-4 w-full rounded-3xl text-center'
@@ -21,8 +25,10 @@ const MailboxList: React.FC<MailboxListProps> = (props) => {
           ))}
         </li>
       </ul>
-    </aside>
-  );
+    );
+  }
+
+  return <aside className='w-40 p-4 h-full border-r-2'>{content}</aside>;
 };
 
 export default MailboxList;

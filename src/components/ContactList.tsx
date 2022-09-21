@@ -1,17 +1,21 @@
 import React from 'react';
 import { HiOutlineUserCircle } from 'react-icons/hi';
-import { IContact } from '../utils/types';
+import { useGetContacts } from '../hooks/useGetContacts';
 
-type ContactListProps = {
-  contacts: IContact[];
-};
+const ContactList: React.FC = () => {
+  const { data: contacts, isLoading, isError, error } = useGetContacts();
 
-const ContactList: React.FC<ContactListProps> = (props) => {
-  return (
-    <aside className='w-60 h-full border-2'>
-      <ul className='px-6 py-2'>
+  let content = <div>Loading...</div>;
+
+  if (isLoading) {
+    content = <div>Loading...</div>;
+  } else if (isError) {
+    content = <div>{(error as Error).message || 'Error'}</div>;
+  } else {
+    content = (
+      <ul>
         <li>
-          {props.contacts?.map((contact) => (
+          {contacts?.map((contact) => (
             <div
               key={contact._id}
               className='w-full mb-2 p-4 flex justify-start items-center scale-125 cursor-pointer hover:bg-slate-200 duration-100'
@@ -22,8 +26,10 @@ const ContactList: React.FC<ContactListProps> = (props) => {
           ))}
         </li>
       </ul>
-    </aside>
-  );
+    );
+  }
+
+  return <aside className='w-60 h-full border-2 px-6 py-2'>{content}</aside>;
 };
 
 export default ContactList;
