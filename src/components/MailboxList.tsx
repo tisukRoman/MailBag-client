@@ -2,7 +2,11 @@ import React from 'react';
 import Button from './Button';
 import { useGetMailboxes } from '../hooks/useGetMailboxes';
 
-const MailboxList: React.FC = () => {
+type MailboxListProps = {
+  onMailboxChange: (name: string) => void;
+};
+
+const MailboxList: React.FC<MailboxListProps> = (props) => {
   const { data: mailboxes, isLoading, isError, error } = useGetMailboxes();
 
   let content = <div>Loading...</div>;
@@ -18,6 +22,7 @@ const MailboxList: React.FC = () => {
           {mailboxes?.map((mailbox) => (
             <Button
               key={mailbox.name}
+              onClick={() => props.onMailboxChange(mailbox.name)}
               styles='p-2 mb-4 w-full rounded-3xl text-center'
             >
               {mailbox.name}

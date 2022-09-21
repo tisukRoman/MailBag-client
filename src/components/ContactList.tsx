@@ -18,7 +18,7 @@ const ContactList: React.FC = () => {
           {contacts?.map((contact) => (
             <div
               key={contact._id}
-              className='w-full mb-2 p-4 flex justify-start items-center scale-125 cursor-pointer hover:bg-slate-200 duration-100'
+              className='w-full mb-2 p-4 flex justify-start items-center border-b-2 scale-125 cursor-pointer hover:bg-slate-200 duration-100'
             >
               <HiOutlineUserCircle className='scale-150 mr-4 shrink-0' />
               {contact.name ? contact.name : 'Unknown'}
@@ -29,7 +29,7 @@ const ContactList: React.FC = () => {
     );
   }
 
-  return <aside className='w-60 h-full border-2 px-6 py-2'>{content}</aside>;
+  return <aside className='w-60 h-full border-l-2 px-6 py-2'>{content}</aside>;
 };
 
 export default ContactList;
