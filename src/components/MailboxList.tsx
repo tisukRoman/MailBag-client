@@ -33,7 +33,7 @@ const MailboxList: React.FC<MailboxListProps> = (props) => {
     );
   }
 
-  return <aside className='w-40 p-4 h-full border-r-2'>{content}</aside>;
+  return <aside className='w-[12%] p-4 h-full border-r-2 shrink-0'>{content}</aside>;
 };
 
 export default MailboxList;

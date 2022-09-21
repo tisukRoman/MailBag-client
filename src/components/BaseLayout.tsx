@@ -2,6 +2,7 @@ import React from 'react';
 import MailboxList from './MailboxList';
 import MessageList from './MessageList';
 import ContactList from './ContactList';
+import ViewArea from './ViewArea';
 import Toolbar from './Toolbar';
 
 const BaseLayout: React.FC = () => {
@@ -12,13 +13,13 @@ const BaseLayout: React.FC = () => {
   };
 
   return (
-    <div className='max-w-screen-xl mx-auto border-2'>
+    <div className='w-[1224px] min-h-screen mx-auto border-2'>
       <Toolbar />
-      <main className='flex h-screen'>
+      <main className='flex h-screen w-full'>
         <MailboxList onMailboxChange={onMailboxChange} />
-        <div className='flex-1 h-screen flex flex-col'>
+        <div className='w-[72%] min-h-screen flex flex-col'>
           <MessageList mailbox={mailbox} />
-          <div className='h-1/2'></div>
+          <ViewArea />
         </div>
         <ContactList />
       </main>
