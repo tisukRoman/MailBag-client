@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetMessage } from '../hooks/useGetMessage';
+import { useGetMessage } from '../../hooks/useGetMessage';
 
 const MessageContent = () => {
   const { mailbox, id } = useParams();

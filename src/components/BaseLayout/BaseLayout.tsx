@@ -2,10 +2,10 @@ import React from 'react';
 import MailboxList from './MailboxList';
 import MessageList from './MessageList';
 import ContactList from './ContactList';
-import ViewArea from './ViewArea';
+import ViewArea from '../ViewArea';
 import Toolbar from './Toolbar';
 
-const BaseLayout: React.FC = () => {
+export const BaseLayout: React.FC = () => {
   const [mailbox, setMailbox] = React.useState<string>('Inbox');
 
   const onMailboxChange = (name: string) => {
@@ -27,5 +27,3 @@ const BaseLayout: React.FC = () => {
     </div>
   );
 };
-
-export default BaseLayout;

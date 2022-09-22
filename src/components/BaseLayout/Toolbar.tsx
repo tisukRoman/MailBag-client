@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from '../shared/Button';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { FaRegEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';

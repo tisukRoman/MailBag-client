@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useGetMessages } from '../hooks/useGetMessages';
-import Button from './Button';
+import { useGetMessages } from '../../hooks/useGetMessages';
+import Button from '../shared/Button';
 
 type MessageListProps = {
   mailbox: string;

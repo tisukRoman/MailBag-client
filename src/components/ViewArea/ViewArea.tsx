@@ -8,7 +8,7 @@ const Welcome = () => {
   return <div className='flex justify-center text-3xl mt-20'>Welcome!</div>;
 };
 
-const ViewArea = () => {
+export const ViewArea = () => {
   return (
     <div className='w-full h-128 overflow-y-scroll'>
       <Routes>
@@ -20,5 +20,3 @@ const ViewArea = () => {
     </div>
   );
 };
-
-export default ViewArea;

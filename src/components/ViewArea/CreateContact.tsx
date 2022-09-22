@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { IContact } from '../utils/types';
-import { useCreateContact } from '../hooks/useCreateContact';
-import TextInput from './TextInput';
+import { IContact } from '../../utils/types';
+import { useCreateContact } from '../../hooks/useCreateContact';
+import TextInput from '../shared/TextInput';
 import { useNavigate } from 'react-router-dom';
-import Button from './Button';
+import Button from '../shared/Button';
 
 const CreateContact: React.FC = () => {
   const navigate = useNavigate();

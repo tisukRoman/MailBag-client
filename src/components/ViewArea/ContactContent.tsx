@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { IContact } from '../utils/types';
+import { IContact } from '../../utils/types';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDeleteContact } from '../hooks/useDeleteContact';
-import { useUpdateContact } from '../hooks/useUpdateContact';
-import TextInput from './TextInput';
-import Button from './Button';
+import { useDeleteContact } from '../../hooks/useDeleteContact';
+import { useUpdateContact } from '../../hooks/useUpdateContact';
+import TextInput from '../shared/TextInput';
+import Button from '../shared/Button';
 
 const ContactContent = () => {
   const { id } = useParams();

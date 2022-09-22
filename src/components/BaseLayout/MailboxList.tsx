@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
-import { useGetMailboxes } from '../hooks/useGetMailboxes';
+import Button from '../shared/Button';
+import { useGetMailboxes } from '../../hooks/useGetMailboxes';
 
 type MailboxListProps = {
   onMailboxChange: (name: string) => void;
