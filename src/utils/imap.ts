@@ -1,6 +1,6 @@
+import { IMailbox, IMessage } from './types';
 import { AxiosResponse } from 'axios';
 import { instance } from './instance';
-import { IMailbox, IMessage } from './types';
 import { getResponse } from './helpers';
 
 export const imap = {

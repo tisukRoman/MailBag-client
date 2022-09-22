@@ -10,7 +10,7 @@ type ButtonProps = React.DetailedHTMLProps<
 
 const Button: React.FC<ButtonProps> = (props) => {
   const styles = classnames(
-    'bg-blue-900 text-white hover:bg-blue-600 duration-100',
+    'bg-blue-900 text-white cursor-pointer hover:bg-blue-600 duration-100',
     props.styles
   );
 

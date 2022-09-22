@@ -11,8 +11,15 @@ export interface IMessage {
   body?: string;
 }
 
+export interface ISentMessage {
+  from: string;
+  to: string;
+  subject: string;
+  text: string;
+}
+
 export interface IContact {
-  _id: number;
+  _id: string;
   name: string;
   email: string;
 }
