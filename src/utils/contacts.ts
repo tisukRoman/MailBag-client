@@ -17,6 +17,17 @@ export const contacts = {
     return getResponse(res);
   },
 
+  async updateContact(
+    id: string,
+    contact: Omit<IContact, '_id'>
+  ): Promise<IContact[]> {
+    const res: AxiosResponse<IContact[]> = await instance.put(
+      `contacts/${id}`,
+      contact
+    );
+    return getResponse(res);
+  },
+
   async deleteContacts(id: string): Promise<string> {
     const res: AxiosResponse<string> = await instance.delete(`contacts/${id}`);
     return getResponse(res);

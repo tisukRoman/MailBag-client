@@ -3,6 +3,7 @@ import { IContact } from '../utils/types';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDeleteContact } from '../hooks/useDeleteContact';
+import { useUpdateContact } from '../hooks/useUpdateContact';
 import TextInput from './TextInput';
 import Button from './Button';
 
@@ -18,10 +19,17 @@ const ContactContent = () => {
 
   const {
     mutateAsync: deleteContact,
-    isLoading,
-    isError,
-    error,
+    isLoading: isDeleting,
+    isError: isDeleteError,
+    error: deleteError,
   } = useDeleteContact(contact._id);
+
+  const {
+    mutateAsync: updateContact,
+    isLoading: isUpdating,
+    isError: isUpdateError,
+    error: updateError,
+  } = useUpdateContact(contact._id, contact);
 
   useEffect(() => {
     const contacts: IContact[] = queryClient.getQueryData(['contacts']);
@@ -33,18 +41,25 @@ const ContactContent = () => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const onSave = () => {
-    console.log('Save');
-  };
-
-  const onDelete = async () => {
-    await deleteContact();
-    if (isError) {
-      alert((error as Error).message || 'Error');
+  const onSave = async () => {
+    await updateContact();
+    if (isUpdateError) {
+      alert((updateError as Error).message || 'Update Error');
     } else {
       navigate('/');
     }
   };
+
+  const onDelete = async () => {
+    await deleteContact();
+    if (isDeleteError) {
+      alert((deleteError as Error).message || 'Delete Error');
+    } else {
+      navigate('/');
+    }
+  };
+
+  const isFetching = isDeleting || isUpdating;
 
   return (
     <div className='flex w-full border-b-2'>
@@ -54,7 +69,7 @@ const ContactContent = () => {
           name='name'
           type='text'
           label='Name'
-          disabled={isLoading}
+          disabled={isFetching}
           value={contact.name}
           onChange={onContactChange}
         />
@@ -63,7 +78,7 @@ const ContactContent = () => {
           name='email'
           type='email'
           label='Email'
-          disabled={isLoading}
+          disabled={isFetching}
           value={contact.email}
           onChange={onContactChange}
         />
@@ -73,13 +88,13 @@ const ContactContent = () => {
           onClick={onSave}
           styles='w-full px-4 py-2 text-lg bg-green-500 rounded-md'
         >
-          {isLoading ? 'loading...' : 'Save'}
+          {isFetching ? 'loading...' : 'Save'}
         </Button>
         <Button
           onClick={onDelete}
           styles='w-full px-4 py-2 text-lg bg-red-500 rounded-md'
         >
-          {isLoading ? 'loading...' : 'Delete'}
+          {isFetching ? 'loading...' : 'Delete'}
         </Button>
       </div>
     </div>
