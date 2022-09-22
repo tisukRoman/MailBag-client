@@ -29,7 +29,7 @@ const ContactList: React.FC = () => {
     );
   }
 
-  return <aside className='w-[16%] h-full border-l-2 px-6 py-2 shrink-0'>{content}</aside>;
+  return <aside className='w-[16%] min-h-full border-l-2 px-6 py-2 shrink-0'>{content}</aside>;
 };
 
 export default ContactList;

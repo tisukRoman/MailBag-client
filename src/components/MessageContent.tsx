@@ -17,12 +17,12 @@ const MessageContent = () => {
     content = <div>Loading...</div>;
   } else if (isError) {
     content = <div>{(error as Error).message || 'Error'}</div>;
-  } else if (!message) {
+  } else if (!message.trim()) {
     content = <div>Empty...</div>;
   } else {
     content = (
       <div>
-        <h3>Message:</h3>
+        <h3 className='text-xl'>Message:</h3>
         <br />
         <div>{message}</div>
       </div>

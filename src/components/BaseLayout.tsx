@@ -15,10 +15,11 @@ const BaseLayout: React.FC = () => {
   return (
     <div className='w-[1224px] min-h-screen mx-auto border-2'>
       <Toolbar />
-      <main className='flex h-screen w-full'>
+      <main className='flex min-h-screen w-full'>
         <MailboxList onMailboxChange={onMailboxChange} />
         <div className='w-[72%] min-h-screen flex flex-col'>
           <MessageList mailbox={mailbox} />
+          <div className='h-4 w-full border-b-2'></div>
           <ViewArea />
         </div>
         <ContactList />

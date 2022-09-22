@@ -8,7 +8,7 @@ const Welcome = () => {
 
 const ViewArea = () => {
   return (
-    <div className='h-1/2 w-full overflow-hidden'>
+    <div className='w-full h-128 overflow-y-scroll'>
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='/:mailbox/:id' element={<MessageContent />} />

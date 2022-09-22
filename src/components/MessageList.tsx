@@ -54,17 +54,17 @@ const MessageList: React.FC<MessageListProps> = ({ mailbox }) => {
   }
 
   return (
-    <table className='h-1/2 w-full border-b-2 flex flex-col overflow-y-scroll'>
-      <thead>
-        <tr className='p-2'>
-          <th>Date:</th>
-          <th className='pl-32'>From:</th>
-          <th className='pl-60'>Subject:</th>
-          <th className='pl-60'>Action:</th>
-        </tr>
-      </thead>
-      <tbody className='flex-1w-full'>{content}</tbody>
-    </table>
+    <>
+      <div className='w-full h-8 flex border-b-2'>
+        <div>Date:</div>
+        <div className='pl-32'>From:</div>
+        <div className='pl-60'>Subject:</div>
+        <div className='pl-60'>Action:</div>
+      </div>
+      <table className='h-128 w-full border-b-2 flex flex-col overflow-y-scroll'>
+        <tbody className='flex-1 w-full'>{content}</tbody>
+      </table>
+    </>
   );
 };
 
