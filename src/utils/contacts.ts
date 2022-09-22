@@ -9,7 +9,7 @@ export const contacts = {
     return getResponse(res);
   },
 
-  async addContact(contact: IContact): Promise<IContact[]> {
+  async addContact(contact: Omit<IContact, '_id'>): Promise<IContact[]> {
     const res: AxiosResponse<IContact[]> = await instance.post(
       'contacts',
       contact
