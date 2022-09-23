@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useCreateMessage } from '../../hooks/useCreateMessage';
 import { ISentMessage } from '../../utils/types';
 import TextInput from '../shared/TextInput';
@@ -8,6 +8,9 @@ import Button from '../shared/Button';
 
 const CreateMessage = () => {
   const navigate = useNavigate();
+  const search = useLocation();
+  console.log(search);
+  
   const [message, setMessage] = useState<ISentMessage>({
     from: 'romka-003@ukr.net',
     to: '',

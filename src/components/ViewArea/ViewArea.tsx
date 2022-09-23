@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import MessageContent from './MessageContent';
 import ContactContent from './ContactContent';
 import CreateContact from './CreateContact';
@@ -18,6 +18,7 @@ export const ViewArea = () => {
         <Route path='/contacts/:id' element={<ContactContent />} />
         <Route path='/contacts/create' element={<CreateContact />} />
         <Route path='/messages/create' element={<CreateMessage />} />
+        <Route path='*' element={<Welcome />} />
       </Routes>
     </div>
   );

@@ -59,6 +59,10 @@ const ContactContent = () => {
     }
   };
 
+  const onSend = () => {
+    navigate(`/messages/create?email=${contact.email}`);
+  };
+
   const isFetching = isDeleting || isUpdating;
 
   return (
@@ -95,6 +99,12 @@ const ContactContent = () => {
           styles='w-full px-4 py-2 text-lg bg-red-500 rounded-md'
         >
           {isFetching ? 'loading...' : 'Delete'}
+        </Button>
+        <Button
+          onClick={onSend}
+          styles='w-full px-4 py-2 text-lg bg-red-500 rounded-md'
+        >
+          {isFetching ? 'loading...' : 'Send Message'}
         </Button>
       </div>
     </div>
