@@ -8,12 +8,15 @@ import Button from '../shared/Button';
 
 const CreateMessage = () => {
   const navigate = useNavigate();
-  const search = useLocation();
-  console.log(search);
-  
+  const { search } = useLocation();
+
+  const getEmailFromSearchParam = () => {
+    return search.split('=')[1] || '';
+  };
+
   const [message, setMessage] = useState<ISentMessage>({
     from: 'romka-003@ukr.net',
-    to: '',
+    to: getEmailFromSearchParam(),
     subject: '',
     text: '',
   });
