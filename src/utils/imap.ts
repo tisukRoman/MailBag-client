@@ -20,6 +20,7 @@ export const imap = {
     const res: AxiosResponse<string> = await instance.get(
       `/messages/${mailbox}/${id}`
     );
+    console.log(res);
     return getResponse(res);
   },
 

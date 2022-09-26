@@ -22,9 +22,7 @@ const MessageContent = () => {
   } else {
     content = (
       <div>
-        <h3 className='text-xl'>Message:</h3>
-        <br />
-        <div>{message}</div>
+        <div dangerouslySetInnerHTML={{ __html: message }} />
       </div>
     );
   }

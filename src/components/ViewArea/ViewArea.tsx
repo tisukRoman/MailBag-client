@@ -11,7 +11,7 @@ const Welcome = () => {
 
 export const ViewArea = () => {
   return (
-    <div className='w-full h-128 overflow-y-scroll'>
+    <div className='w-full min-h-128 grow shrink-0'>
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='/:mailbox/:id' element={<MessageContent />} />
